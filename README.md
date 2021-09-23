@@ -3,7 +3,7 @@
 ## 功能说明
 帮助完成体温打卡，以防缺漏
 
-## 所需Python包
+## 依赖关系
 * [liscber](https://github.com/licsber)
 * json
 
