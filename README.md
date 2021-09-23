@@ -4,7 +4,7 @@
 帮助完成体温打卡，以防缺漏
 
 ## 所需Python包
-* liscber
+* [liscber](https://github.com/licsber)
 * json
 
 ## 测试环境
