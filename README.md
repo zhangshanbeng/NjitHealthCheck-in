@@ -1,4 +1,4 @@
-# NjitHealthInfoDailyClock
+# NJIT Health check-in
 
 ## 功能说明
 帮助完成体温打卡，以防缺漏
