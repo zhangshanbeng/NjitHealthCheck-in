@@ -6,14 +6,6 @@ EHALL_USER = ''
 EHALL_PWD = ''
 PHONE_NUMBER = ''
 
-import json
-from licsber.auth.wisedu import get_wisedu_session
-
-#信息门户账号、密码，手机号
-EHALL_USER = ''
-EHALL_PWD = ''
-PHONE_NUMBER = ''
-
 LOGIN_URL = 'http://authserver.njit.edu.cn/authserver/login?service=http%3A%2F%2Fehall.njit.edu.cn%2Flogin%3Fservice%3Dhttp%3A%2F%2Fehall.njit.edu.cn%2Fnew%2Findex.html'
 GET_URL = 'http://ehallapp.njit.edu.cn/publicapp/sys/lwNjitHealthInfoDailyClock/index.do#/healthClock'
 QUERY_URL = 'http://ehallapp.njit.edu.cn/publicapp/sys/lwNjitHealthInfoDailyClock/modules/healthClock/V_LWPUB_JKDK_QUERY.do'
