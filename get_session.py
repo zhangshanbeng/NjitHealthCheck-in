@@ -30,9 +30,6 @@ def get_wisedu_session_webvpn(url, no, pwd, s=get_session(), captcha_retry=99, r
             while not check_captcha(captcha):
                 content = get_captcha(url, session)
                 captcha = predict_captcha(content)
-                if len(captcha) != 4:
-                    print('Error 1: 验证码长度校验失败.')
-                    return False
 
         res = session.get(url)
 
@@ -66,7 +63,7 @@ def get_wisedu_session_webvpn(url, no, pwd, s=get_session(), captcha_retry=99, r
         #print(session.cookies)
         #print(res.text)
         if '您提供的用户名或者密码有误' in res.text:
-            print('Error 2: 密码错误.')
+            print('Error 1: 密码错误.')
             print(f"{no}: 密码错误.")
             pwd_error = True
 
@@ -75,7 +72,7 @@ def get_wisedu_session_webvpn(url, no, pwd, s=get_session(), captcha_retry=99, r
 
         if '安全退出' in res.text:
             return True
-        print('Error 3: 验证码识别错误.')
+        print('Error 2: 验证码识别错误.')
         return False
 
     pwd_error = False
