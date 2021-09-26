@@ -1,10 +1,11 @@
 # NJIT Health Check-in
 
 ## 功能说明
-帮助完成体温打卡，以防缺漏
+V1.0: 帮助完成体温打卡，以防缺漏
+V2.0: 加入深信服webvpn
 
 ## 依赖关系
-* [liscber](https://github.com/licsber)
+* [liscber](https://github.com/Licsber/licsber-pypi)
 * json
 
 ## 测试环境
