@@ -17,8 +17,8 @@ PHONE_NUMBER = ''
 by2 = ''
 
 s = get_session()
-vpn = NJITwebvpn(EHALL_USER,EHALL_PWD)
-s = vpn.login()
+#vpn = NJITwebvpn(EHALL_USER,EHALL_PWD)
+#s = vpn.login()
 
 LOGIN_URL = 'http://authserver.njit.edu.cn/authserver/login?service=http%3A%2F%2Fehall.njit.edu.cn%2Flogin%3Fservice%3Dhttp%3A%2F%2Fehall.njit.edu.cn%2Fnew%2Findex.html'
 GET_URL = 'http://ehallapp.njit.edu.cn/publicapp/sys/lwNjitHealthInfoDailyClock/index.do#/healthClock'
@@ -30,13 +30,13 @@ URL_DICT = { 'LOGIN_URL': LOGIN_URL, 'GET_URL': GET_URL, 'QUERY_URL': QUERY_URL,
 
 #套了一层webvpn进行加速，如果不需要就注释掉
 #webvpn: 伪内网访问
-for k,v in URL_DICT.items():
-    URL_DICT[k] = getVPNUrl(v)
+#for k,v in URL_DICT.items():
+#    URL_DICT[k] = getVPNUrl(v)
 
-s = get_wisedu_session_webvpn(URL_DICT['LOGIN_URL'], EHALL_USER, EHALL_PWD, s)
+#s = get_wisedu_session_webvpn(URL_DICT['LOGIN_URL'], EHALL_USER, EHALL_PWD, s)
 
 #公网访问(二选一)
-#s = get_wisedu_session(URL_DICT['LOGIN_URL'], EHALL_USER, EHALL_PWD)
+s = get_wisedu_session(URL_DICT['LOGIN_URL'], EHALL_USER, EHALL_PWD)
 
 s.get(URL_DICT['GET_URL'])
 
