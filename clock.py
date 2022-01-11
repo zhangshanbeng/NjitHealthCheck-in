@@ -9,9 +9,16 @@ EHALL_USER = ''
 EHALL_PWD = ''
 PHONE_NUMBER = ''
 
+#by2: 住宿信息字段, e.g:张三住北1, by2 = '013'
+#[{"id":"001","name":"走读"},{"id":"002","name":"东1"},{"id":"003","name":"东2"},{"id":"004","name":"东3"},{"id":"005","name":"东4"},{"id":"006","name":"东5"},
+#{"id":"007","name":"东6"},{"id":"008","name":"东7"},{"id":"009","name":"东8"},{"id":"010","name":"东9"},{"id":"011","name":"东10"},{"id":"012","name":"东11"},
+#{"id":"013","name":"北1"},{"id":"014","name":"北2"},{"id":"015","name":"北3"},{"id":"016","name":"北4"},{"id":"017","name":"北5"},{"id":"018","name":"北6"},
+#{"id":"019","name":"北7"},{"id":"020","name":"北8"},{"id":"021","name":"北9"},{"id":"022","name":"北10"}]
+by2 = ''
+
 s = get_session()
-vpn = NJITwebvpn(EHALL_USER,EHALL_PWD)
-s = vpn.login()
+#vpn = NJITwebvpn(EHALL_USER,EHALL_PWD)
+#s = vpn.login()
 
 LOGIN_URL = 'http://authserver.njit.edu.cn/authserver/login?service=http%3A%2F%2Fehall.njit.edu.cn%2Flogin%3Fservice%3Dhttp%3A%2F%2Fehall.njit.edu.cn%2Fnew%2Findex.html'
 GET_URL = 'http://ehallapp.njit.edu.cn/publicapp/sys/lwNjitHealthInfoDailyClock/index.do#/healthClock'
@@ -23,13 +30,13 @@ URL_DICT = { 'LOGIN_URL': LOGIN_URL, 'GET_URL': GET_URL, 'QUERY_URL': QUERY_URL,
 
 #套了一层webvpn进行加速，如果不需要就注释掉
 #webvpn: 伪内网访问
-for k,v in URL_DICT.items():
-    URL_DICT[k] = getVPNUrl(v)
+#for k,v in URL_DICT.items():
+#    URL_DICT[k] = getVPNUrl(v)
 
-s = get_wisedu_session_webvpn(URL_DICT['LOGIN_URL'], EHALL_USER, EHALL_PWD, s)
+#s = get_wisedu_session_webvpn(URL_DICT['LOGIN_URL'], EHALL_USER, EHALL_PWD, s)
 
 #公网访问(二选一)
-#s = get_wisedu_session(URL_DICT['LOGIN_URL'], EHALL_USER, EHALL_PWD)
+s = get_wisedu_session(URL_DICT['LOGIN_URL'], EHALL_USER, EHALL_PWD)
 
 s.get(URL_DICT['GET_URL'])
 
@@ -57,6 +64,7 @@ data_am = {
     "DEPT_NAME":dept_name,
     "PHONE_NUMBER":PHONE_NUMBER,
     "FILL_TIME":date,
+    "BY2": by2
     "BY3": "001",
     "CLOCK_SITUATION":"江苏省南京市江宁区南京工程学院",
     "TODAY_SITUATION":"001",
