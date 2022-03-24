@@ -1,4 +1,4 @@
-# NJIT Health Check-in
+# NJIT Health Check-in (NJIT webvpn demo)
 
 ## 特别声明 03/24/2022
 1. 本仓库自建立以来，一直存在重大缺陷，是无法正常完成体温打卡的
